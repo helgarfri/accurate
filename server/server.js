@@ -1,20 +1,29 @@
 const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
+require('dotenv').config();
+console.log('User:', process.env.PGUSER);
+console.log('Host:', process.env.PGHOST);
+console.log('Database:', process.env.PGDATABASE);
+console.log('Password:', process.env.PGPASSWORD);
+console.log('Port:', process.env.PGPORT);
+
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
+
+
 
 // Enable CORS
 app.use(cors());
 
-// PostgreSQL connection setup
+// PostgreSQL connection setup using environment variables
 const pool = new Pool({
-    user: 'accurate',
-    host: 'localhost',
-    database: 'accurate',
-    password: 'ragnarlodbrok',
-    port: 5432,
+    user: process.env.PGUSER || 'accurate',
+    host: process.env.PGHOST || 'localhost',
+    database: process.env.PGDATABASE || 'accurate',
+    password: process.env.PGPASSWORD || 'defaultpassword',
+    port: process.env.PGPORT || 5432,
 });
 
 // API endpoint to get all titles

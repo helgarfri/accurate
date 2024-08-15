@@ -34,7 +34,7 @@ export default function TitleDetails() {
             <h2>{details.title}</h2>
             <p>Year: {details.year}</p>
             <p>Genre: {details.genre}</p>
-            {/* Add more details as necessary */}
+            
         </div>
     );
 }

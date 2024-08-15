@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
+import styles from "./TitleList.module.css";
+
 
 export default function TitleList() {
     const [titles, setTitles] = useState([]);
@@ -14,7 +16,7 @@ export default function TitleList() {
     }, []);
 
     return (
-        <div>
+        <div className={styles.container}>
             <h1>Series and Movies</h1>
             <ul>
                 {titles.map(title => (
